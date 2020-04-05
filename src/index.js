@@ -6,43 +6,39 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Container, Grid, Label } from 'semantic-ui-react'
 import * as serviceWorker from './serviceWorker';
 
-const blogItems = [[{category: "news",color:"red"},{category:"info",color:"grey"}],[{category: "tech",color:"blue"},{category:"x-factor",color:"green"}]]
+const blogItems = [{category: "news",color:"red"},{category:"info",color:"grey"},{category: "tech",color:"blue"},{category:"x-factor",color:"green"}]
 class Blog extends React.Component{
   render() {
     const name = "My Super Blog";
     return (
       <div>
         <h1>{name}</h1>
-        <BlogItems/>
+        {
+          blogItems.map(item => (<BlogItems category={item.category} color={item.color} />))
+        }
       </div>
     )
   }
 }
 class BlogItems extends React.Component{
   render() {
+    const {
+      category,
+      color,
+    } = this.props;
     return (
-      blogItems.map(item => (
         <div>
         <Grid columns={2}>
         <Grid.Row>
-        <Grid.Column>
-        <Label as='a' color={item[0].color}>{item[0].category}</Label>
+        <Label as='a' color={color}>{category}</Label>
         <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
         </p>
-        </Grid.Column>
-        <Grid.Column>
-        <Label as='a' color={item[1].color}>{item[1].category}</Label>
-        <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
-        </p>
-          </Grid.Column>
         </Grid.Row>
         </Grid>
       </div>
-      ))
-    )
-  }
+      )
+    }
 }
 class Square extends React.Component{
   render() {
