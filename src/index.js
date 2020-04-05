@@ -20,27 +20,28 @@ class Blog extends React.Component{
 }
 class BlogItems extends React.Component{
   render() {
-    var tiles = blogItems.map(function (blogItem) {
-      return (<div>
+    return (
+      blogItems.map(item => (
+        <div>
         <Grid columns={2}>
         <Grid.Row>
         <Grid.Column>
-        <Label as='a' color={blogItem[0].color}>{blogItem[0].category}</Label>
+        <Label as='a' color={item[0].color}>{item[0].category}</Label>
         <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
         </p>
         </Grid.Column>
         <Grid.Column>
-        <Label as='a' color={blogItem[1].color}>{blogItem[1].category}</Label>
+        <Label as='a' color={item[1].color}>{item[1].category}</Label>
         <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
         </p>
           </Grid.Column>
         </Grid.Row>
         </Grid>
-      </div>)
-    })
-    return tiles;
+      </div>
+      ))
+    )
   }
 }
 class Square extends React.Component{
