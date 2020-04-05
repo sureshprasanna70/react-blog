@@ -3,50 +3,44 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { Container, Grid, Label, Card } from 'semantic-ui-react'
+import { Container, Grid, Label } from 'semantic-ui-react'
 import * as serviceWorker from './serviceWorker';
 
+const blogItems = [[{category: "news",color:"red"},{category:"info",color:"grey"}],[{category: "tech",color:"blue"},{category:"x-factor",color:"green"}]]
 class Blog extends React.Component{
   render() {
+    const name = "My Super Blog";
     return (
       <div>
-        <h1>Blog</h1>
-
-        <Grid>
-    <Grid.Row>
-            <Grid.Column width={8}>
-              <BlogItems category="news" color="red"/>
-            </Grid.Column>
-            <Grid.Column width={8}>
-            <BlogItems category="info" color="grey"/>
-              
-      </Grid.Column>
-    </Grid.Row>
-
-    <Grid.Row>
-            <Grid.Column width={8}>
-            <BlogItems category="tech" color="blue"/>
-              
-      </Grid.Column>
-            <Grid.Column width={8}>
-            <BlogItems category="x-factor" color="green"/>
-              
-      </Grid.Column>
-    </Grid.Row>
-  </Grid>
-        
+        <h1>{name}</h1>
+        <BlogItems/>
       </div>
     )
   }
 }
 class BlogItems extends React.Component{
   render() {
-    return (
-      <div>
-        <Label as='a' color={this.props.color}>{this.props.category}</Label>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-      </div>
-    )
+    var tiles = blogItems.map(function (blogItem) {
+      return (<div>
+        <Grid columns={2}>
+        <Grid.Row>
+        <Grid.Column>
+        <Label as='a' color={blogItem[0].color}>{blogItem[0].category}</Label>
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+        </p>
+        </Grid.Column>
+        <Grid.Column>
+        <Label as='a' color={blogItem[1].color}>{blogItem[1].category}</Label>
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+        </p>
+          </Grid.Column>
+        </Grid.Row>
+        </Grid>
+      </div>)
+    })
+    return tiles;
   }
 }
 class Square extends React.Component{
