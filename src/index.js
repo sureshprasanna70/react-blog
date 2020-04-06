@@ -1,100 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import 'semantic-ui-css/semantic.min.css'
+
+import Blog from './blog/blog';
+import Game from './game/game';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { Container, Grid, Label } from 'semantic-ui-react'
+import { Container } from 'semantic-ui-react'
 import * as serviceWorker from './serviceWorker';
-
-const blogItems = [{category: "news",color:"red"},{category:"info",color:"grey"},{category: "tech",color:"blue"},{category:"x-factor",color:"green"}]
-class Blog extends React.Component{
-  render() {
-    const name = "My Super Blog";
-    return (
-      <div>
-        <h1>{name}</h1>
-        <div class="blog">
-        {blogItems.map(item => (<BlogItems category={item.category} color={item.color} />))}
-        </div>
-          
-      </div>
-    )
-  }
-}
-class BlogItems extends React.Component{
-  render() {
-    const {
-      category,
-      color,
-    } = this.props;
-    return (
-        <div class="blogItems">
-        <Label as='a' color={color}>{category}</Label>
-        <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
-        </p>
-      </div>
-      )
-    }
-}
-class Square extends React.Component{
-  render() {
-    return (
-      <button className="square">
-          {/* TODO */}
-      </button>
-    );
-  }
-}
-
-
-class Board extends React.Component{
-
-  renderSquare(i) {
-    return <Square />;
-  }
-  render() {
-    const status = "Next Player: X";
-    return (
-      <div>
-        <div className="status">{status}</div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
-      </div>
-    )
-  }
-}
-
-class Game extends React.Component{
-  render() {
-    return (
-      
-      <div class="game">
-        <div class="game-board">
-          <Board/>
-        </div> 
-        <div class="game-info">
-          <div>{/* status */}</div>
-          <ol>{/* TODO */}</ol>
-        </div>
-        </div>
-        
-    )
-  }
-}
 
 class Home extends React.Component{
   render() {
