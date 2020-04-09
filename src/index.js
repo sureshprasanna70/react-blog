@@ -13,6 +13,7 @@ import Cart from './shop/Cart'
 import Default from './Default'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Container, Icon } from 'semantic-ui-react'
+import { ProductProvider } from './context';
 import * as serviceWorker from './serviceWorker';
 
 class Home extends React.Component{
@@ -61,9 +62,11 @@ class Home extends React.Component{
 
 ReactDOM.render(
   <React.StrictMode>
-    <Container>
-    <Home />
-    </Container>
+    <ProductProvider>
+      <Container>
+         <Home />
+      </Container>
+    </ProductProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
