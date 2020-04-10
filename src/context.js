@@ -6,14 +6,27 @@ const ProductConsumer = ProductContext.Consumer;
 
 class ProductProvider extends Component{
     state = {
-        products:storeProducts,
+        products:[],
         detailProduct:detailProduct
+    }
+    componentDidMount() {
+        this.setProducts();
     }
     handleDetail = () => {
         console.log("hello from detail")
     }
     addToCart = () => {
         console.log("hello from cart")
+    }
+    setProducts = () => {
+        let tempProducts = [];
+        storeProducts.forEach(storeProduct => {
+            const singleProduct = { ...storeProduct }
+            tempProducts.push(singleProduct)
+        });
+        this.setState(() => {
+            return { products:tempProducts}
+        })
     }
     render() {
         return (
