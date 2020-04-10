@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Card, Image, Button, Icon } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 
 export default class Product extends Component{
     truncate(str) {
@@ -39,4 +40,13 @@ export default class Product extends Component{
             </div>
         )
     }
+}
+
+Product.propTypes = {
+    product: PropTypes.shape({
+        id: PropTypes.number,
+        title: PropTypes.string,
+        inCart: PropTypes.bool,
+        price: PropTypes.number,
+    })
 }
