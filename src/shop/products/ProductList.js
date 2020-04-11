@@ -8,8 +8,8 @@ export default class ProductList extends Component{
         return (
             <React.Fragment>
                     <Container>
-                        <Grid className="mt-2">
-                            <ProductConsumer>
+                    <Grid columns={3} className="mt-2">
+                        <ProductConsumer>
                                 {(value) => {
                                     return value.products.map(product => {
                                         return <Product key={product.id} product={product}/>
