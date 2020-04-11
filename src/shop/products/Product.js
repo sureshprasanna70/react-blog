@@ -11,8 +11,8 @@ export default class Product extends Component{
     const {title, img, price,  info, inCart} = this.props.product
 
         return (
-            <div onClick={() => console.log("you clicked me!!")}>
-                <Grid.Column>
+            <Grid.Column>
+                <div onClick={() => console.log("you clicked me!!")}>
                     <Card>
                         <Link to="/details">
                             <Image src={img}/>
@@ -22,7 +22,7 @@ export default class Product extends Component{
                                 {title}
                             </Card.Header>
                             <Card.Description>
-                                {this.truncate(info)}
+                               <p>{this.truncate(info)}</p>
                             <Card.Meta>
                                 <Button basic size="large" animated='vertical' color="blue" disabled={inCart ? true: false} onClick={() => console.log("added to cart")}>
                                     <Button.Content visible>
@@ -36,8 +36,8 @@ export default class Product extends Component{
                                 </Card.Description>
                         </Card.Content>
                     </Card>
-                </Grid.Column>
-            </div>
+                </div>
+            </Grid.Column>
         )
     }
 }
