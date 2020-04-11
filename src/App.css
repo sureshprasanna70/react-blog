@@ -40,7 +40,19 @@
 .shop-title{
   font-size: 30px;
   text-align: center;
+  margin-bottom: 3% !important;
 }
 .mt-2{
   margin-top: 10px !important;
+}
+
+.product{
+  margin-top: 6%;
+}
+.product .price, .product .make{
+  font-size: large;
+  text-transform: capitalize;
+}
+.product .info{
+  font-size: large;
 }
