@@ -26,7 +26,7 @@ export default class ProductDetails extends Component{
                                         {info} 
                                     </p>
                                     <div className="actions">
-                                    <Link to="/products" className="ui red button ">Back to Products</Link>
+                                    <Link to="/shop" className="ui red button ">Back to Products</Link>
                                         <Button color="blue">Add to Cart</Button>
                                     </div>
                                 </Grid.Column>
