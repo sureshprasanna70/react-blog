@@ -27,7 +27,7 @@ export default class Product extends Component{
                                 <Card.Description>
                                    <p>{this.truncate(info)}</p>
                                 <Card.Meta>
-                                    <Button basic size="large" animated='vertical' color="blue" disabled={inCart ? true: false} onClick={() => console.log("added to cart")}>
+                                    <Button basic size="large" animated='vertical' color="blue" disabled={inCart ? true: false} onClick={() => value.addToCart(id)}>
                                         <Button.Content visible>
                                             <Icon name='shop' /> {inCart ? "Already in Cart" : "$"+price}
                                         </Button.Content>
