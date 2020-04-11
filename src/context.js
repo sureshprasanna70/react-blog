@@ -7,14 +7,29 @@ const ProductConsumer = ProductContext.Consumer;
 class ProductProvider extends Component{
     state = {
         products:[],
-        detailProduct:detailProduct
+        detailProduct: detailProduct,
+        cart: []
     }
     componentDidMount() {
         this.setProducts();
     }
     
     addToCart = (id) => {
-        console.log(`hello from cart.${ id }`)
+        let tempProducts = [...this.state.products]
+        const index = tempProducts.indexOf(this.getItem(id));
+        const product = tempProducts[index]
+        const price  = product.price
+        product.inCart = true
+        product.count = 1
+        product.total = price
+        console.log(`hello from cart.${id}`)
+        this.setState(() => {
+            return{products: tempProducts, cart: [...this.state.cart,product] }
+        })
+    }
+    getCartCount = () => {
+        let cartItems =[...this.state.cart]
+        return cartItems.length
     }
     getItem = (id) => {
         return this.state.products.find(item => item.id === id);
@@ -40,7 +55,8 @@ class ProductProvider extends Component{
             <ProductContext.Provider value={{
                 ...this.state,
                 handleDetail: this.handleDetail,
-                addToCart: this.addToCart
+                addToCart: this.addToCart,
+                getCartCount: this.getCartCount
             }}>
                 {this.props.children}
             </ProductContext.Provider>
