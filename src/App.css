@@ -56,3 +56,11 @@
 .product .info{
   font-size: large;
 }
+.cart-count{
+  background-color: #f45e5e;
+  border-radius: 8px;
+  padding: 8px 10px;
+  color: white;
+  font-weight: bold;
+  margin-left: 10px;
+}

@@ -13,7 +13,7 @@ import Cart from './shop/Cart'
 import Default from './Default'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Container, Icon } from 'semantic-ui-react'
-import { ProductProvider } from './context';
+import { ProductProvider, ProductConsumer } from './context';
 import * as serviceWorker from './serviceWorker';
 
 class Home extends React.Component{
@@ -28,9 +28,14 @@ class Home extends React.Component{
               <Link className="item" to="/blog">Blog</Link>
               <Link className="item" to="/game">Game</Link>
               <Link className="item" to="/shop">Shop</Link>
-              <div className="right menu">
-                <Link className="item" to="/cart"><Icon name="shopping cart" />Cart</Link>
-              </div>
+              <ProductConsumer>
+                {(value) => (
+                  <div className="right menu">
+                  <Link className="item" to="/cart"><Icon name="shopping cart" />Cart <span class="cart-count">{value.getCartCount()}</span></Link>
+                </div>
+                )}
+              </ProductConsumer>
+              
             </div>
             <Switch>
               <Route exact path="/">
