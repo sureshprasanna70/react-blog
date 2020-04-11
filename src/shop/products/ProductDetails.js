@@ -16,18 +16,20 @@ export default class ProductDetails extends Component{
                                     <img src={img} alt={title}/>
                                 </Grid.Column>
                                 <Grid.Column>
-                                    <p class="price">
+                                    <p className="price">
                                         <strong>Price: ${price}</strong>
                                     </p>
-                                    <p class="make">
-                                       <stron>Maker: </stron> {company}
+                                    <p className="make">
+                                       <strong>Maker:  {company} </strong>
                                     </p>
                                     <p className="info">
                                         {info} 
                                     </p>
                                     <div className="actions">
-                                    <Link to="/shop" className="ui red button ">Back to Products</Link>
-                                        <Button color="blue">Add to Cart</Button>
+                                        <Link to="/shop" className="ui large red button">Back to Products</Link>
+                                        <Button size="large" icon="shop" color="blue" disabled={inCart ? true: false} onClick={() => value.addToCart(id)}>
+                                          {inCart ? "Already in Cart" : "Buy $" + price}
+                                        </Button>
                                     </div>
                                 </Grid.Column>
                             </Grid>

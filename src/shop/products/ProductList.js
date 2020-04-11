@@ -7,7 +7,7 @@ export default class ProductList extends Component{
     render() {
         return (
             <React.Fragment>
-                    <Container>
+                <Container>
                     <Grid columns={3} className="mt-2">
                         <ProductConsumer>
                                 {(value) => {
