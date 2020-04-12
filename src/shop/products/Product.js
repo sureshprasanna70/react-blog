@@ -29,10 +29,10 @@ export default class Product extends Component{
                                 <Card.Meta>
                                     <Button basic size="large" animated='vertical' color="blue" disabled={inCart ? true: false} onClick={() => value.addToCart(id)}>
                                         <Button.Content visible>
-                                            <Icon name='shop' /> {inCart ? "Already in Cart" : "$"+price}
+                                            <Icon name='shop' /> {inCart ? "In Cart" : "$"+price}
                                         </Button.Content>
                                         <Button.Content hidden>
-                                            Add to Cart
+                                        {inCart ? "In Cart" :  "Add to Cart"}
                                         </Button.Content>
                                     </Button>
                                     </Card.Meta>

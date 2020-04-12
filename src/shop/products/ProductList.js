@@ -8,7 +8,7 @@ export default class ProductList extends Component{
         return (
             <React.Fragment>
                 <Container>
-                    <Grid columns={3} className="mt-2">
+                    <Grid stackable columns={3} className="mt-2">
                         <ProductConsumer>
                                 {(value) => {
                                     return value.products.map(product => {

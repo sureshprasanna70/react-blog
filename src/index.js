@@ -12,31 +12,31 @@ import ProductDetails from './shop/products/ProductDetails'
 import Cart from './shop/Cart'
 import Default from './Default'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { Container, Icon } from 'semantic-ui-react'
+import { Container, Icon, Menu, Image } from 'semantic-ui-react'
 import { ProductProvider, ProductConsumer } from './context';
 import * as serviceWorker from './serviceWorker';
 
 class Home extends React.Component{
   render() {
     return (
-      <div>
-        <img src={logo} alt="logo" />
-         <Router>
-          <div>
-            <div className="ui menu">
-              <Link className="item" to="/"><Icon name='home' color="orange" /></Link>
-              <Link className="item" to="/blog">Blog</Link>
-              <Link className="item" to="/game">Game</Link>
-              <Link className="item" to="/shop">Shop</Link>
-              <ProductConsumer>
-                {(value) => (
-                  <div className="right menu">
-                  <Link className="item" to="/cart"><Icon name="shopping cart" />Cart <span class="cart-count">{value.getCartCount()}</span></Link>
-                </div>
+        <Router>
+            <Menu inverted stackable borderless>
+              <Container>
+            <Menu.Item as='a' header href="/">
+                  <Image size='mini' src={logo} style={{ marginRight: '1.5em' }} />
+                  Learn React
+                  </Menu.Item>
+                <Menu.Item><Link to="/blog">Blog</Link></Menu.Item>
+                <Menu.Item><Link to="/game">Game</Link></Menu.Item>
+                <Menu.Item><Link to="/shop">Shop</Link></Menu.Item> <ProductConsumer>
+              {(value) => (
+                <Menu.Item position="right">
+                  <Link className="item" to="/cart"><Icon name="shopping cart" />Cart <div class="cart-count">{value.getCartCount()}</div></Link>
+                </Menu.Item>
                 )}
-              </ProductConsumer>
-              
-            </div>
+                </ProductConsumer>
+              </Container>
+            </Menu>
             <Switch>
               <Route exact path="/">
                 <App />
@@ -58,9 +58,7 @@ class Home extends React.Component{
               </Route>
               <Route component={Default} />
             </Switch>
-          </div>
         </Router>
-      </div>
     )
   }
 }

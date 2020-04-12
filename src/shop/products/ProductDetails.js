@@ -11,7 +11,7 @@ export default class ProductDetails extends Component{
                     return (
                         <div className="product">
                             <Header as='h1' className="shop-title">{title}</Header>
-                            <Grid columns={2}>
+                            <Grid stackable columns={2}>
                                 <Grid.Column>
                                     <img src={img} alt={title}/>
                                 </Grid.Column>
