@@ -50,13 +50,29 @@ class ProductProvider extends Component{
             return { detailProduct: fProduct}
         })
     }
+    increment = (id) => {
+        console.log("increment product count in cart")
+    }
+    decrement = (id) => {
+        console.log("decrement product count in cart")
+    }
+    removeItem = (id) => {
+        console.log("removed from cart")
+    }
+    clearCart = () => {
+        console.info("cart cleared")
+    }
     render() {
         return (
             <ProductContext.Provider value={{
                 ...this.state,
                 handleDetail: this.handleDetail,
                 addToCart: this.addToCart,
-                getCartCount: this.getCartCount
+                getCartCount: this.getCartCount,
+                increment: this.increment,
+                decrement: this.decrement,
+                removeItem: this.removeItem,
+                clearCart: this.clearCart,
             }}>
                 {this.props.children}
             </ProductContext.Provider>
