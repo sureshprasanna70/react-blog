@@ -6,7 +6,7 @@ class Blog extends React.Component{
   render() {
     const name = "My Super Blog";
     return (
-      <div className="mt-7">
+      <div className="mt-1">
         <h1>{name}</h1>
         <div className="blog">
           {blogItems.map(item => (<BlogItems category={item.category} color={item.color} id= {item.id} />))}
