@@ -9,7 +9,7 @@ import Blog from './blog/blog';
 import Game from './game/game';
 import Shop from './shop/shop'
 import ProductDetails from './shop/products/ProductDetails'
-import Cart from './shop/Cart'
+import Cart from './shop/cart/Cart'
 import Default from './Default'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Container, Icon, Menu, Image } from 'semantic-ui-react'
