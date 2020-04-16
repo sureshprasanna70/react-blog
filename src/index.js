@@ -15,7 +15,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Container, Icon, Menu, Image } from 'semantic-ui-react'
 import { ProductProvider, ProductConsumer } from './context';
 import * as serviceWorker from './serviceWorker';
-
+import { Provider } from "react-redux";
+import store from "./js/store/index";
 class Home extends React.Component{
   render() {
     return (
@@ -38,8 +39,10 @@ class Home extends React.Component{
               </Container>
             </Menu>
             <Switch>
-              <Route exact path="/">
+          <Route exact path="/">
+              <Provider store={store}>
                 <App />
+              </Provider>
               </Route>
               <Route path="/blog">
                 <Blog />
