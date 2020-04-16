@@ -66,6 +66,22 @@
   font-weight: bold;
   margin-left: 10px;
 }
+.cart-product-count{
+  margin-left:10px;
+  margin-right: 10px;
+}
 .mt-1{
   margin-top: 1rem;
+}
+div [class*="left floated"] {
+  float: left;
+  margin-left: 0.25em;
+}
+
+div [class*="right floated"] {
+  float: right;
+   margin-right: 0.25em;
+} 
+.cart-totals{
+  font-size: large;
 }
