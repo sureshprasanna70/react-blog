@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Icon, Button } from 'semantic-ui-react';
 export default function CartItem({ item, value }) {
-    const { id, title, price, total, count, img } = item;
+    const { id, title, price, total, count } = item;
     const { increment, decrement, removeItem } = value;
     return (
         <React.Fragment>
