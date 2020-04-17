@@ -1,20 +1,23 @@
 import React from 'react';
 import BlogItems from './blogItem';
+import { connect } from 'react-redux';
 
-const blogItems = [{ category: "news", color: "red", id: 1 }, { category: "info", color: "grey", id: 2 }, { category: "tech", color: "blue", id: 3 }, { category: "x-factor", color: "green", id: 4 }]
-class Blog extends React.Component{
-  render() {
-    const name = "My Super Blog";
+
+const mapStateToProps = state => {
+  return {articles: state.articles};
+}
+function BlogList({articles}){
     return (
       <div className="mt-1">
-        <h1>{name}</h1>
+        <h1 className="shop-title">Redux V</h1>
         <div className="blog">
-          {blogItems.map(item => (<BlogItems category={item.category} color={item.color} id= {item.id} />))}
+          {articles.map(article => (
+            <BlogItems key={article.id} title={article.title}  content={article.content} color={article.color} category={article.category}/>
+          ))}
         </div>
-          
       </div>
     )
   }
-}
 
+const Blog = connect(mapStateToProps)(BlogList);
 export default Blog;
