@@ -8,7 +8,7 @@ import List from './List'
 function App() {
   return (
     <div className="App mt-2">
-      <List/>
+      Work in Progress
     </div>
   );
 }
