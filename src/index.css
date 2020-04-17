@@ -56,3 +56,11 @@ ol, ul {
 .square:focus {
   outline: none;
 }
+
+.blogItems .title{
+  font-size: large;
+  font-weight: bold;
+}
+.blogItems .content, .blogItems .category{
+  margin-top: 10px;
+}
