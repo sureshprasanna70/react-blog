@@ -17,6 +17,8 @@ import { ProductProvider, ProductConsumer } from './context';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from "react-redux";
 import store from "./js/store/index";
+import index from "./js/index"
+window.store = store;
 class Home extends React.Component{
   render() {
     return (
@@ -32,20 +34,25 @@ class Home extends React.Component{
                 <Menu.Item><Link to="/shop">Shop</Link></Menu.Item> <ProductConsumer>
               {(value) => (
                 <Menu.Item position="right">
-                  <Link className="item" to="/cart"><Icon name="shopping cart" />Cart <div class="cart-count">{value.getCartCount()}</div></Link>
+                  <Link className="item" to="/cart">
+                    <Icon name="shopping cart" />Cart
+                    <div className="cart-count">{value.getCartCount()}</div>
+                  </Link>
                 </Menu.Item>
                 )}
                 </ProductConsumer>
               </Container>
             </Menu>
             <Switch>
-          <Route exact path="/">
-              <Provider store={store}>
-                <App />
-              </Provider>
+              <Route exact path="/">
+                <Provider store={store}>
+                  <App />
+                </Provider>
               </Route>
               <Route path="/blog">
-                <Blog />
+                <Provider store={store}>
+                   <Blog />
+                </Provider>
               </Route>
               <Route path="/game">
                 <Game />
