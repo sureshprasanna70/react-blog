@@ -45,9 +45,7 @@ class Home extends React.Component{
             </Menu>
             <Switch>
               <Route exact path="/">
-                <Provider store={store}>
                   <App />
-                </Provider>
               </Route>
               <Route path="/blog">
                 <Provider store={store}>
