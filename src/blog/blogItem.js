@@ -6,7 +6,7 @@ class BlogItems extends Component{
       const { category, color, id,title ,content } = this.props;
       return (
           <div className="blogItems">
-          <div class="title">{title}</div>
+          <div className="title">{title}</div>
           <div id={id} className="content">
               {content}
           </div>
