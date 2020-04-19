@@ -15,7 +15,7 @@ class ConnectedForm extends Component{
         super(props);
         this.state = {
             title: "",
-            content: "",
+            body: "",
             category: "",
             visibility: false
         };
@@ -29,10 +29,10 @@ class ConnectedForm extends Component{
     }
     handleSubmit(event) {
         event.preventDefault();
-        const { title, content, category } = this.state;
-        this.props.addArticle({ title, content, category })
+        const { title, body, category } = this.state;
+        this.props.addArticle({ title, body, category })
         this.setState(() => {
-            return {title: "",content: "",category: "", visibility: false}
+            return {title: "",body: "",category: "", visibility: false}
         })
     }
     handleOpen() {
@@ -42,9 +42,9 @@ class ConnectedForm extends Component{
         this.setState({visibility: false})
     }
     render() {
-        const { title, content, category } = this.state
+        const { title, body, category } = this.state
         return (
-            <Modal trigger={<Button color="red" onClick={() =>{this.handleOpen()}}><Icon name="pencil alternate"/> Write an Article</Button>} open={this.state.visibility}>
+            <Modal trigger={<Button color="red" onClick={() => { this.handleOpen() }}><Icon name="pencil alternate"/> Write an Article</Button>} open={this.state.visibility}>
                 <Header>Write an Article</Header>
                 <Modal.Content>
                     <Form onSubmit={this.handleSubmit}>
@@ -54,7 +54,7 @@ class ConnectedForm extends Component{
                         </Form.Field>
                         <Form.Field>
                             <label htmlFor="content">Content</label>
-                            <textarea id="content" value={content} onChange={this.handleChange}></textarea>
+                            <textarea id="body" value={body} onChange={this.handleChange}></textarea>
                         </Form.Field>
                         <Form.Field>
                             <label htmlFor="Category">Category</label>
